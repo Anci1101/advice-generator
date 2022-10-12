@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+//colors
+//primary
+$light-cyan: hsl(193, 38%, 86%);
+$neon-green: hsl(150, 100%, 66%);
+
+//neutral
+$grayish-blue: hsl(217, 19%, 38%);
+$dark-grayish-blue: hsl(217, 19%, 24%);
+$dark-blue: hsl(218, 23%, 16%);
+
+$font-stack: 'Manrope', sans-serif;
+
+$font-weight-extra-bold: 800;
+
+$font-size: 16px;
+
+@mixin respond($breakpoint){
+    @if($breakpoint == large){
+        @media (min-width: 780px) {
+            @content
+        }
+    };
+    @if ($breakpoint == small){
+        @media (max-width: 375px) {
+            @content
+        }
+    }
+}
+
+.wrapper{
+    background-color: $dark-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 1440px;
+}
+
+.quote-box{
+    background-color: $dark-grayish-blue;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+
+    @include respond(large){
+        width: 40%;
+    }
+}
+
+.advice-number {
+    font-family: $font-stack;
+    color: $neon-green;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+.advice {
+    font-family: $font-stack;
+    font-size: $font-size;
+    color: $light-cyan;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.mobile-divider{
+    padding-bottom: 25px;
+}
+
+.btn {
+    background-color: $neon-green;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    position: absolute;
+    bottom: -30px;
+}
+
+.btn:hover{
+    box-shadow: 0 0 10px 5px $neon-green;
+    cursor: pointer;
+}
